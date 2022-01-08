@@ -2,21 +2,21 @@ const sql = require("../database/index");
 
 // constructor
 const ProgrammingLanguage = function(lang) {
-  this.name = lang.title;
+  this.name = lang.name;
   this.released_year = lang.released_year;
   this.github_rank = lang.github_rank;
 };
 
-ProgrammingLanguage.create = (Conn, result) => {
-  sql.query("INSERT INTO programming_languages SET ?", Conn, (err, res) => {
+ProgrammingLanguage.create = (form, result) => {
+  sql.query("INSERT INTO programming_languages SET ?", form, (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(err, null);
       return;
     }
 
-    console.log("created programming language: ", { id: res.insertId, ...Conn });
-    result(null, { id: res.insertId, ...Conn });
+    console.log("created programming language: ", { id: res.insertId, ...form });
+    result(null, { id: res.insertId, ...form });
   });
 };
 
@@ -39,11 +39,11 @@ ProgrammingLanguage.findById = (id, result) => {
   });
 };
 
-ProgrammingLanguage.getAll = (title, result) => {
+ProgrammingLanguage.getAll = (name, result) => {
   let query = "SELECT * FROM programming_languages";
 
-  if (title) {
-    query += ` WHERE programming_languages LIKE '%${title}%'`;
+  if (name) {
+    query += ` WHERE programming_languages LIKE '%${name}%'`;
   }
 
   sql.query(query, (err, res) => {

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body> 
+    <form action="POST">
+        <div style="margin-bottom:20px;">
+            <select name="list" id="list">
+                <optgroup label="SkolaClass">
+                    <option value="">Data Science</option>
+                    <option value="">Digital Marketing</option>
+                    <option value="">Data Engineer</option>
+                    <option value="">UI/UX Design</option>
+                    <option value="">Fullstack Developer</option>
+                </optgroup>
+                <optgroup label="SkolaExpert">
+                    <option value="">Excel</option>
+                    <option value="">Copywriting</option>
+                    <option value="">Tableu</option>
+                </optgroup>
+            </select>
+        </div>
+        <div>
+            <input type="text" name="kelas" id="kelas" list="suggestion" placeholder="type class name here">
+            <datalist id="suggestion">
+                <option value="data-science">SkolaClass</option>
+                <option value="digital-marketing">SkolaClass</option>
+                <option value="data-engineer">SkolaClass</option>
+                <option value="ui-ux-design">SkolaClass</option>
+                <option value="fullstack-developer">SkolaClass</option>
+                <option value="excel">SkolaExpert</option>
+                <option value="copy-writing">SkolaExpert</option>
+                <option value="tableu">SkolaExpert</option>
+            </datalist>
+        </div>
+    </form>
+</body>
+</html>

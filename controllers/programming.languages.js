@@ -11,9 +11,9 @@ exports.create = (req, res) => {
 
   // Create a Programming Language
   const pLang = new ProgrammingLanguage({
-    title: req.body.title,
-    description: req.body.description,
-    published: req.body.published || false
+    name: req.body.name,
+    released_year: req.body.released_year,
+    github_rank: req.body.github_rank || 0
   });
 
   // Save Programming Language in the database
@@ -29,9 +29,9 @@ exports.create = (req, res) => {
 
 // Retrieve all Programming Languages from the database (with condition).
 exports.findAll = (req, res) => {
-  const title = req.query.title;
+  const name = req.query.name;
 
-  ProgrammingLanguage.getAll(title, (err, data) => {
+  ProgrammingLanguage.getAll(name, (err, data) => {
     if (err)
       res.status(500).send({
         message:
